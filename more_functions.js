@@ -14,12 +14,19 @@ addNumbers(10, 5);
 
 const displayReceipt = (total, paid) => {
   const changeDue = parseFloat(total) - parseFloat(paid);
-
-  console.log(
-    `the total is: ${total} and you only paid ${paid} change due ${Math.abs(
-      changeDue
-    )}`
-  );
+  if (total > paid) {
+    console.log(
+      `the total is: ${total} and you  paid ${paid} change due ${Math.abs(
+        changeDue
+      )}`
+    );
+  } else if (total < paid) {
+    console.log(
+      `the total is: ${total} and you only paid ${paid}  you owe ${Math.abs(
+        changeDue
+      )}`
+    );
+  }
 };
 
-displayReceipt(100, 50);
+displayReceipt(100, 120);
