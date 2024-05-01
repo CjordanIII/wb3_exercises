@@ -1,3 +1,5 @@
+"use strict";
+
 function getSocSecTax(grossPay) {
   return grossPay * 0.062;
 }
@@ -9,20 +11,22 @@ function geMedicareTax(grossPay) {
 function getFederalTax(grossPay, withHoldingCode) {
   if (0 == withHoldingCode) {
     return grossPay * 0.23;
-  } else if (1 == withHoldingCode) {
+  } else if (1 === withHoldingCode) {
     return grossPay * 0.21;
-  } else if (2 == withHoldingCode) {
+  } else if (2 === withHoldingCode) {
     return grossPay * 0.195;
-  } else if (3 == withHoldingCode) {
+  } else if (3 === withHoldingCode) {
     return grossPay * 0.185;
   } else if (4 <= withHoldingCode) {
     const flag = withHoldingCode - 4;
     if (flag != 0) {
-      const formula = 0.18 - flag * 0.005;
+      const formula = grossPay * (0.18 - flag * 0.005);
       return formula;
     } else {
       return grossPay * 0.18;
     }
+  } else {
+    console.log("something went wrong");
   }
 }
 
@@ -40,7 +44,7 @@ console.log(
 const personTwo = 1550;
 
 console.log(
-  `person one social Tax:${getSocSecTax(personTwo).toFixed(
+  `person two social Tax:${getSocSecTax(personTwo).toFixed(
     2
   )} , Medicare: ${geMedicareTax(personTwo).toFixed(
     2
@@ -50,7 +54,7 @@ console.log(
 const personThree = 1100;
 
 console.log(
-  `person one social Tax:${getSocSecTax(personThree).toFixed(
+  `person three social Tax:${getSocSecTax(personThree).toFixed(
     2
   )} , Medicare: ${geMedicareTax(personThree).toFixed(
     2
