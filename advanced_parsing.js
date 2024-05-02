@@ -18,10 +18,12 @@ function parseAndDisplayName(name) {
     middlename = newName[1];
     lastname = newName[2];
     sentence = `First name :${firstname} \nMiddle name: ${middlename} \nLast name: ${lastname}`;
-  } else {
+  } else if (newName.length === 1) {
     // first name
     firstname = newName[0];
     sentence = `Only name: ${firstname}`;
+  } else {
+    console.log("something went wrong (only goes to 3 names)");
   }
   //   results
   console.log(sentence);
