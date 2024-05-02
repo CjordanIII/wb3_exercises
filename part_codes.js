@@ -18,6 +18,11 @@ function getSupplier(code) {
   return state;
 }
 
+function getSupplier2(code) {
+  let someting = code.split(":");
+  return someting[0];
+}
+
 function getProductNumber(code) {
   let state;
   switch (code) {
@@ -38,6 +43,12 @@ function getProductNumber(code) {
   return state;
 }
 
+function getProductNumber2(code) {
+  let someting = code.split(":");
+  someting = someting[1].split("-");
+  return someting[0];
+}
+
 function getSize(code) {
   let state;
   switch (code) {
@@ -56,6 +67,39 @@ function getSize(code) {
   }
   return state;
 }
+
+function getSize2(state) {
+  let someting = state.split(":");
+
+  someting = someting[1].split("-");
+  return someting[1];
+}
+
+console.log(
+  `the supplier is ${getSupplier2(
+    "ACME:123-L"
+  )} and the product Number is${getProductNumber2(
+    "ACME:123-L"
+  )} and the size is ${getSize2("ACME:123-L")}`
+);
+
+console.log(
+  `the supplier is ${getSupplier2(
+    "DI:12345-M"
+  )}  and the product Number is ${getProductNumber2(
+    "DI:12345-M"
+  )} and the size is ${getSize2("DI:12345-M")}`
+);
+
+console.log(
+  `the supplier is ${getSupplier2(
+    "ACE:1-12"
+  )} and the product Number is${getProductNumber2(
+    "ACE:1-12"
+  )} and the size is ${getSize2("ACE:1-12")}`
+);
+
+console.log("<============Switch case ================>\n");
 
 console.log(
   `the supplier is ${getSupplier(
