@@ -26,5 +26,10 @@ function parseAndDisplayName(name) {
   //   results
   console.log(sentence);
 }
-
-parseAndDisplayName("Brenda");
+console.log("============================\n");
+parseAndDisplayName("cher");
+console.log("============================\n");
+parseAndDisplayName("Brenda kaye");
+console.log("============================\n");
+parseAndDisplayName("Dana Lynn Wyatt");
+console.log("============================\n");
