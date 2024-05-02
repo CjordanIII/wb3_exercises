@@ -15,12 +15,8 @@ function getSupplier(code) {
       state = "unknown";
       break;
   }
-  console.log("code: ", state);
+  return state;
 }
-
-getSupplier("ACME:123-L");
-getSupplier("DI:12345-M");
-getSupplier("ACE:1-12");
 
 function getProductNumber(code) {
   let state;
@@ -39,12 +35,8 @@ function getProductNumber(code) {
       state = "unknown";
       break;
   }
-  console.log("product number: ", state);
+  return state;
 }
-
-getProductNumber("ACME:123-L");
-getProductNumber("DI:12345-M");
-getProductNumber("ACE:1-12");
 
 function getSize(code) {
   let state;
@@ -62,9 +54,29 @@ function getSize(code) {
       state = "unknown";
       break;
   }
-  console.log("size: ", state);
+  return state;
 }
 
-getSize("ACME:123-L");
-getSize("DI:12345-M");
-getSize("ACE:1-12");
+console.log(
+  `the supplier is ${getSupplier(
+    "ACME:123-L"
+  )} and the product Number is${getProductNumber(
+    "ACME:123-L"
+  )} and the size is ${getSize("ACME:123-L")}`
+);
+
+console.log(
+  `the supplier is ${getSupplier(
+    "DI:12345-M"
+  )}  and the product Number is ${getProductNumber(
+    "DI:12345-M"
+  )} and the size is ${getSize("DI:12345-M")}`
+);
+
+console.log(
+  `the supplier is ${getSupplier(
+    "ACE:1-12"
+  )} and the product Number is${getProductNumber(
+    "ACE:1-12"
+  )} and the size is ${getSize("ACE:1-12")}`
+);
